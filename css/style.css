@@ -6,11 +6,19 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #C6C5D9;
+}
+
 h1{
     font-family: 'Alkatra', cursive, Arial, Helvetica, sans-serif;
 }
 
 img{
+    width: 100%;
+}
+
+.width{
     width: 50%;
 }
 

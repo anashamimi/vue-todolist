@@ -28,16 +28,16 @@
             <h1 class="text-uppercase">Crea la tua lista della spesa</h1>
         </header>
 
-        <div class="container p-5">
-            <div class="">
+        <div class="p-5">
+            <div class="bg-white p-5 width m-auto rounded-5">
 
                 <div class="d-flex justify-content-center">
-                    <img src="https://www.nonsprecare.it/wp-content/uploads/2016/04/come-fare-spesa-intelligente-trucchi-consigli-risparmiare.jpg"
+                    <img class="rounded-4" src="https://www.nonsprecare.it/wp-content/uploads/2016/04/come-fare-spesa-intelligente-trucchi-consigli-risparmiare.jpg"
                         alt="spesa">
                 </div>
                 <div class="d-flex justify-content-center align-items-center gap-3 p-4">
                     <label for="quantity" class="form-label">Quantità</label>
-                    <input class="rounded p-1" type="number" id="quantity">
+                    <input class="rounded p-1" type="number" id="quantity" v-model="newQuantity">
                     <input class="rounded p-1" type="text" v-model="newLista" @keyup.enter="inserisci"
                         placeholder="inserisci un prodotto">
                     <button type="button" class="btn btn-outline-success" @click="inserisci">Aggiungi</button>
@@ -51,6 +51,7 @@
                         <li class="d-flex gap-3 align-items-center" @click="complete(index)"
                             :class="element.completed ? 'alert alert-success': ''"
                             v-for="(element, index) in listaSpesa">
+                            <span class="py-3">{{element.quantity}}</span>
                             <span class="py-3">{{element.name.toUpperCase()}}</span>
                             <button type="button" class="btn btn-outline-danger" @click.stop="deleteList(index)"><i
                                     class="fa-solid fa-trash"></i> Cancella</button>
