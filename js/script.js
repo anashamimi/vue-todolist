@@ -23,16 +23,22 @@ createApp({
                 }
             ],
             newLista: '',
+            message: '',
         }
     },
     methods: {
         inserisci(){
+            this.message = '';
             const newItem= {
                 name: this.newLista,
                 completed: false
             }
-            this.listaSpesa.push(newItem);
-            this.newLista = '';
+            if(this.newLista === ''){
+                this.message = 'inserisci un valore valido';
+            } else{
+                this.listaSpesa.push(newItem);                
+            }
+            
         },
         deleteList(index){
             this.listaSpesa.splice(index, 1);

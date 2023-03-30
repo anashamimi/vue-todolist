@@ -35,13 +35,18 @@
                     <img src="https://www.nonsprecare.it/wp-content/uploads/2016/04/come-fare-spesa-intelligente-trucchi-consigli-risparmiare.jpg"
                         alt="spesa">
                 </div>
-                <div class="d-flex justify-content-center gap-3 p-4">
+                <div class="d-flex justify-content-center align-items-center gap-3 p-4">
+                    <label for="quantity" class="form-label">Quantità</label>
+                    <input class="rounded p-1" type="number" id="quantity">
                     <input class="rounded p-1" type="text" v-model="newLista" @keyup.enter="inserisci"
                         placeholder="inserisci un prodotto">
                     <button type="button" class="btn btn-outline-success" @click="inserisci">Aggiungi</button>
                 </div>
 
+                <p class="text-center text-danger">{{message}}</p>
+
                 <div class="d-flex justify-content-center gap-3">
+
                     <ul v-if="listaSpesa.length > 0">
                         <li class="d-flex gap-3 align-items-center" @click="complete(index)"
                             :class="element.completed ? 'alert alert-success': ''"
@@ -55,6 +60,7 @@
                     </ul>
 
                     <h3 class="text-danger" v-else>La lista della spesa è vuota</h3>
+
                 </div>
             </div>
         </div>
